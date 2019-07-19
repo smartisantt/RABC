@@ -1,0 +1,2471 @@
+2019-07-18 16:42:00 WARNING [15312-Thread-1] log.log_response line 228: Not Found: /user/
+2019-07-18 16:42:00 WARNING [15312-Thread-1] basehttp.log_message line 154: "GET /user/ HTTP/1.1" 404 2056
+2019-07-18 16:49:00 WARNING [10376-Thread-1] log.log_response line 228: Not Found: /user/
+2019-07-18 16:49:00 WARNING [10376-Thread-1] basehttp.log_message line 154: "GET /user/ HTTP/1.1" 404 2056
+2019-07-18 16:50:49 WARNING [10376-Thread-1] log.log_response line 228: Not Found: /api/manage/story/audio/
+2019-07-18 16:50:49 WARNING [10376-Thread-1] basehttp.log_message line 154: "GET /api/manage/story/audio/?tag=6ecc348c943e11e9bd54408d5c048283 HTTP/1.1" 404 2796
+2019-07-18 16:51:04 WARNING [10376-Thread-1] log.log_response line 228: Not Found: /api/manage/home/totaldata/
+2019-07-18 16:51:04 WARNING [10376-Thread-1] basehttp.log_message line 154: "POST /api/manage/home/totaldata/ HTTP/1.1" 404 2769
+2019-07-18 16:51:15 WARNING [10376-Thread-1] log.log_response line 228: Not Found: /api/manage/bgm/bgmlist/
+2019-07-18 16:51:15 WARNING [10376-Thread-1] basehttp.log_message line 154: "GET /api/manage/bgm/bgmlist/ HTTP/1.1" 404 2759
+2019-07-18 16:54:05 WARNING [7064-Thread-2] log.log_response line 228: Not Found: /api/manage/bgm/bgmlist/
+2019-07-18 16:54:05 WARNING [7064-Thread-2] basehttp.log_message line 154: "GET /api/manage/bgm/bgmlist/ HTTP/1.1" 404 2759
+2019-07-18 16:54:25 WARNING [14520-Thread-2] log.log_response line 228: Not Found: /user/
+2019-07-18 16:54:25 WARNING [14520-Thread-2] basehttp.log_message line 154: "GET /user/ HTTP/1.1" 404 2056
+2019-07-18 17:40:41 ERROR [12200-Thread-2] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'userID' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\sql\compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'userID' cannot be null")
+2019-07-18 17:40:41 ERROR [12200-Thread-2] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 22225
+2019-07-19 11:36:36 WARNING [5884-Thread-2] log.log_response line 228: Method Not Allowed: /api/user/1/
+2019-07-19 11:36:36 WARNING [5884-Thread-2] basehttp.log_message line 154: "GET /api/user/1/ HTTP/1.1" 405 45
+2019-07-19 11:37:01 WARNING [5884-Thread-2] log.log_response line 228: Method Not Allowed: /api/user/1/
+2019-07-19 11:37:01 WARNING [5884-Thread-2] basehttp.log_message line 154: "GET /api/user/1/ HTTP/1.1" 405 45
+2019-07-19 11:37:05 WARNING [5884-Thread-2] log.log_response line 228: Method Not Allowed: /api/user/1/
+2019-07-19 11:37:05 WARNING [5884-Thread-2] basehttp.log_message line 154: "GET /api/user/1/ HTTP/1.1" 405 45
+2019-07-19 11:37:37 WARNING [5884-Thread-2] log.log_response line 228: Method Not Allowed: /api/user/11/
+2019-07-19 11:37:37 WARNING [5884-Thread-2] basehttp.log_message line 154: "GET /api/user/11/ HTTP/1.1" 405 45
+2019-07-19 11:37:45 WARNING [5884-Thread-2] log.log_response line 228: Method Not Allowed: /api/user/11/
+2019-07-19 11:37:45 WARNING [5884-Thread-2] basehttp.log_message line 154: "GET /api/user/11/ HTTP/1.1" 405 45
+2019-07-19 11:37:50 ERROR [5884-Thread-2] log.log_response line 228: Internal Server Error: /api/user/11
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\utils\deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\middleware\common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\middleware\common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/user/11/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2019-07-19 11:37:50 ERROR [5884-Thread-2] basehttp.log_message line 154: "POST /api/user/11 HTTP/1.1" 500 65782
+2019-07-19 11:38:13 WARNING [16220-Thread-2] log.log_response line 228: Method Not Allowed: /api/user/11/
+2019-07-19 11:38:13 WARNING [16220-Thread-2] basehttp.log_message line 154: "GET /api/user/11/ HTTP/1.1" 405 45
+2019-07-19 11:39:39 WARNING [15808-Thread-2] log.log_response line 228: Method Not Allowed: /api/user/11/
+2019-07-19 11:39:39 WARNING [15808-Thread-2] basehttp.log_message line 154: "GET /api/user/11/ HTTP/1.1" 405 45
+2019-07-19 11:39:40 WARNING [15808-Thread-2] log.log_response line 228: Method Not Allowed: /api/user/11/
+2019-07-19 11:39:40 WARNING [15808-Thread-2] basehttp.log_message line 154: "GET /api/user/11/ HTTP/1.1" 405 45
+2019-07-19 11:41:21 WARNING [15808-Thread-2] log.log_response line 228: Method Not Allowed: /api/user/11/
+2019-07-19 11:41:21 WARNING [15808-Thread-2] basehttp.log_message line 154: "GET /api/user/11/ HTTP/1.1" 405 45
+2019-07-19 11:47:59 WARNING [15652-Thread-7] log.log_response line 228: Not Found: /api/usersdfdfd/11/
+2019-07-19 11:47:59 WARNING [15652-Thread-7] basehttp.log_message line 154: "DELETE /api/usersdfdfd/11/ HTTP/1.1" 404 3175
+2019-07-19 11:49:41 WARNING [15652-Thread-7] log.log_response line 228: Method Not Allowed: /api/user/
+2019-07-19 11:49:41 WARNING [15652-Thread-7] basehttp.log_message line 154: "DELETE /api/user/ HTTP/1.1" 405 48
+2019-07-19 11:49:57 WARNING [15652-Thread-7] log.log_response line 228: Method Not Allowed: /api/user/
+2019-07-19 11:49:57 WARNING [15652-Thread-7] basehttp.log_message line 154: "DELETE /api/user/ HTTP/1.1" 405 48
+2019-07-19 11:50:01 WARNING [15652-Thread-7] log.log_response line 228: Method Not Allowed: /api/user/
+2019-07-19 11:50:01 WARNING [15652-Thread-7] basehttp.log_message line 154: "DELETE /api/user/ HTTP/1.1" 405 48
+2019-07-19 11:52:41 WARNING [16136-Thread-7] log.log_response line 228: Method Not Allowed: /api/user/
+2019-07-19 11:52:41 WARNING [16136-Thread-7] basehttp.log_message line 154: "DELETE /api/user/ HTTP/1.1" 405 48
+2019-07-19 11:52:46 WARNING [16136-Thread-7] log.log_response line 228: Not Found: /api/user/11/
+2019-07-19 11:52:46 WARNING [16136-Thread-7] basehttp.log_message line 154: "DELETE /api/user/11/ HTTP/1.1" 404 25
+2019-07-19 12:43:49 ERROR [6424-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+2019-07-19 12:43:49 ERROR [6424-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 206
+2019-07-19 12:46:26 WARNING [15776-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 12:46:26 WARNING [15776-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 38
+2019-07-19 12:46:40 WARNING [15776-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 12:46:40 WARNING [15776-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 38
+2019-07-19 12:48:57 WARNING [6716-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 12:48:57 WARNING [6716-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 151
+2019-07-19 12:56:07 ERROR [3740-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "D:\worksapce\rabc\api\serializers.py", line 38, in is_valid
+    super.is_valid(self, raise_exception=False)
+AttributeError: type object 'super' has no attribute 'is_valid'
+2019-07-19 12:56:07 ERROR [3740-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 18332
+2019-07-19 12:56:29 ERROR [6064-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "D:\worksapce\rabc\api\serializers.py", line 38, in is_valid
+    super().is_valid(self, raise_exception=False)
+TypeError: is_valid() got multiple values for argument 'raise_exception'
+2019-07-19 12:56:29 ERROR [6064-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 18352
+2019-07-19 12:56:47 ERROR [6064-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "D:\worksapce\rabc\api\serializers.py", line 38, in is_valid
+    super().is_valid
+TypeError: is_valid() got multiple values for argument 'raise_exception'
+2019-07-19 12:56:47 ERROR [6064-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 18323
+2019-07-19 12:57:21 ERROR [13252-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 183, in save
+    'You cannot call `.save()` on a serializer with invalid data.'
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2019-07-19 12:57:21 ERROR [13252-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 18514
+2019-07-19 12:57:42 WARNING [16328-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 12:57:42 WARNING [16328-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 151
+2019-07-19 12:58:26 ERROR [11312-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "D:\worksapce\rabc\api\serializers.py", line 40, in is_valid
+    raise ParamError({'code': 2001, 'msg': '用户字段校验有误', 'error': serializers.errors})
+AttributeError: module 'rest_framework.serializers' has no attribute 'errors'
+2019-07-19 12:58:26 ERROR [11312-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 18417
+2019-07-19 13:00:06 ERROR [4440-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "D:\worksapce\rabc\api\serializers.py", line 40, in is_valid
+    raise ParamError({'code': 2001, 'msg': '用户字段校验有误', 'error': serializers.errors})
+AttributeError: module 'rest_framework.serializers' has no attribute 'errors'
+2019-07-19 13:00:06 ERROR [4440-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 18417
+2019-07-19 13:00:21 ERROR [3784-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+2019-07-19 13:00:21 ERROR [3784-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 206
+2019-07-19 13:03:16 ERROR [3784-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+2019-07-19 13:03:16 ERROR [3784-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 206
+2019-07-19 13:03:19 ERROR [3784-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+2019-07-19 13:03:19 ERROR [3784-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 206
+2019-07-19 13:03:39 ERROR [3784-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+2019-07-19 13:03:39 ERROR [3784-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 206
+2019-07-19 13:03:41 ERROR [3784-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+2019-07-19 13:03:41 ERROR [3784-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 206
+2019-07-19 13:03:52 ERROR [3784-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+2019-07-19 13:03:52 ERROR [3784-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 206
+2019-07-19 13:04:06 ERROR [4420-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+2019-07-19 13:04:06 ERROR [4420-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 206
+2019-07-19 13:05:04 WARNING [15724-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 13:05:04 WARNING [15724-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 206
+2019-07-19 13:05:37 WARNING [6280-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 13:05:37 WARNING [6280-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 206
+2019-07-19 13:27:22 WARNING [12236-Thread-7] log.log_response line 228: Method Not Allowed: /api/user/
+2019-07-19 13:27:22 WARNING [12236-Thread-7] basehttp.log_message line 154: "PUT /api/user/ HTTP/1.1" 405 45
+2019-07-19 13:31:12 WARNING [12236-Thread-7] log.log_response line 228: Not Found: /api/user/123/
+2019-07-19 13:31:12 WARNING [12236-Thread-7] basehttp.log_message line 154: "PUT /api/user/123/ HTTP/1.1" 404 25
+2019-07-19 13:31:17 WARNING [12236-Thread-7] log.log_response line 228: Bad Request: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 13:31:17 WARNING [12236-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 400 38
+2019-07-19 13:32:29 WARNING [2752-Thread-7] log.log_response line 228: Bad Request: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 13:32:29 WARNING [2752-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 400 38
+2019-07-19 13:32:30 WARNING [2752-Thread-7] log.log_response line 228: Bad Request: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 13:32:30 WARNING [2752-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 400 38
+2019-07-19 13:32:41 WARNING [13140-Thread-7] log.log_response line 228: Bad Request: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 13:32:41 WARNING [13140-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 400 38
+2019-07-19 13:32:43 WARNING [13140-Thread-7] log.log_response line 228: Bad Request: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 13:32:43 WARNING [13140-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 400 38
+2019-07-19 13:32:59 WARNING [13140-Thread-7] log.log_response line 228: Bad Request: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 13:32:59 WARNING [13140-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 400 38
+2019-07-19 13:33:02 WARNING [13140-Thread-7] log.log_response line 228: Bad Request: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 13:33:02 WARNING [13140-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 400 38
+2019-07-19 13:33:14 WARNING [13140-Thread-7] log.log_response line 228: Bad Request: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 13:33:14 WARNING [13140-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 400 38
+2019-07-19 13:33:15 WARNING [13140-Thread-7] log.log_response line 228: Bad Request: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 13:33:15 WARNING [13140-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 400 38
+2019-07-19 13:34:40 WARNING [13140-Thread-7] log.log_response line 228: Bad Request: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 13:34:40 WARNING [13140-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 400 35
+2019-07-19 13:35:06 WARNING [13140-Thread-7] log.log_response line 228: Bad Request: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 13:35:06 WARNING [13140-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 400 57
+2019-07-19 13:36:26 ERROR [14180-Thread-7] log.log_response line 228: Internal Server Error: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 68, in update
+    self.perform_update(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 78, in perform_update
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "D:\worksapce\rabc\api\serializers.py", line 67, in update
+    'user': UserBasicSerializer(user).data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\relations.py", line 529, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'int' object has no attribute 'roles'
+2019-07-19 13:36:26 ERROR [14180-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 500 19438
+2019-07-19 13:36:35 ERROR [14180-Thread-7] log.log_response line 228: Internal Server Error: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 68, in update
+    self.perform_update(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 78, in perform_update
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "D:\worksapce\rabc\api\serializers.py", line 67, in update
+    'user': UserBasicSerializer(user).data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\relations.py", line 529, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'int' object has no attribute 'roles'
+2019-07-19 13:36:35 ERROR [14180-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 500 19438
+2019-07-19 13:36:59 ERROR [12956-Thread-7] log.log_response line 228: Internal Server Error: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 68, in update
+    self.perform_update(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 78, in perform_update
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "D:\worksapce\rabc\api\serializers.py", line 67, in update
+    'user': UserBasicSerializer(user).data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\relations.py", line 529, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'int' object has no attribute 'roles'
+2019-07-19 13:36:59 ERROR [12956-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 500 19438
+2019-07-19 13:37:45 WARNING [12956-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 13:37:45 WARNING [12956-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 206
+2019-07-19 13:39:02 WARNING [15300-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 13:39:02 WARNING [15300-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 83
+2019-07-19 13:39:40 ERROR [15300-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 91, in get_attribute
+    instance = instance[attr]
+KeyError: 'userID'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `userID` on serializer `UserPostSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'userID'."
+2019-07-19 13:39:40 ERROR [15300-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19539
+2019-07-19 13:40:58 ERROR [15300-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'B6800E7D7DDF43B18F536BCA9BF4D70B' for key 'uuid'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "D:\worksapce\rabc\api\serializers.py", line 43, in create
+    user = User.objects.create(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\sql\compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'B6800E7D7DDF43B18F536BCA9BF4D70B' for key 'uuid'")
+2019-07-19 13:40:58 ERROR [15300-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 23619
+2019-07-19 13:41:23 ERROR [15300-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'B6800E7D7DDF43B18F536BCA9BF4D70B' for key 'uuid'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "D:\worksapce\rabc\api\serializers.py", line 43, in create
+    user = User.objects.create(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\sql\compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'B6800E7D7DDF43B18F536BCA9BF4D70B' for key 'uuid'")
+2019-07-19 13:41:23 ERROR [15300-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 23619
+2019-07-19 13:42:41 ERROR [4544-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ququ250@qq.com' for key 'email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "D:\worksapce\rabc\api\serializers.py", line 45, in create
+    user = User.objects.create(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\sql\compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'ququ250@qq.com' for key 'email'")
+2019-07-19 13:42:41 ERROR [4544-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 23568
+2019-07-19 13:42:48 ERROR [4544-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 91, in get_attribute
+    instance = instance[attr]
+KeyError: 'userID'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `userID` on serializer `UserPostSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'userID'."
+2019-07-19 13:42:48 ERROR [4544-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19539
+2019-07-19 13:44:13 ERROR [12728-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 91, in get_attribute
+    instance = instance[attr]
+KeyError: 'userID'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `userID` on serializer `UserPostSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'userID'."
+2019-07-19 13:44:13 ERROR [12728-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19539
+2019-07-19 13:45:15 ERROR [12728-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'quq1250@qq.com' for key 'email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "D:\worksapce\rabc\api\serializers.py", line 45, in create
+    user = User.objects.create(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\sql\compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'quq1250@qq.com' for key 'email'")
+2019-07-19 13:45:15 ERROR [12728-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 23568
+2019-07-19 13:45:23 ERROR [12728-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 91, in get_attribute
+    instance = instance[attr]
+KeyError: 'userID'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `userID` on serializer `UserPostSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'userID'."
+2019-07-19 13:45:23 ERROR [12728-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19539
+2019-07-19 13:46:19 ERROR [12728-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'qu250@qq.com' for key 'email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "D:\worksapce\rabc\api\serializers.py", line 45, in create
+    user = User.objects.create(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\sql\compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'qu250@qq.com' for key 'email'")
+2019-07-19 13:46:19 ERROR [12728-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 23562
+2019-07-19 13:47:31 ERROR [9296-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'userID'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `userID` on serializer `UserPostSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Response` instance.
+Original exception text was: 'Response' object has no attribute 'userID'.
+2019-07-19 13:47:31 ERROR [9296-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19677
+2019-07-19 13:48:19 ERROR [9296-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'userID'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `userID` on serializer `UserPostSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Response` instance.
+Original exception text was: 'Response' object has no attribute 'userID'.
+2019-07-19 13:48:19 ERROR [9296-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19677
+2019-07-19 13:48:40 ERROR [15512-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'userID'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `userID` on serializer `UserPostSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Response` instance.
+Original exception text was: 'Response' object has no attribute 'userID'.
+2019-07-19 13:48:40 ERROR [15512-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19677
+2019-07-19 13:49:52 ERROR [15512-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'userID'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `userID` on serializer `UserPostSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Response` instance.
+Original exception text was: 'Response' object has no attribute 'userID'.
+2019-07-19 13:49:52 ERROR [15512-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19677
+2019-07-19 13:51:59 ERROR [5316-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'userID'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `userID` on serializer `UserPostSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Response` instance.
+Original exception text was: 'Response' object has no attribute 'userID'.
+2019-07-19 13:52:00 ERROR [5316-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19677
+2019-07-19 13:52:52 ERROR [5316-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'qu44eeeedddddddd0@qq.com' for key 'email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "D:\worksapce\rabc\api\serializers.py", line 46, in create
+    user = User.objects.create(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\sql\compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'qu44eeeedddddddd0@qq.com' for key 'email'")
+2019-07-19 13:52:52 ERROR [5316-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 23598
+2019-07-19 13:53:12 ERROR [5316-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'userID'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `userID` on serializer `UserPostSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Response` instance.
+Original exception text was: 'Response' object has no attribute 'userID'.
+2019-07-19 13:53:12 ERROR [5316-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19677
+2019-07-19 13:57:24 ERROR [12396-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'userID'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `userID` on serializer `UserPostSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Response` instance.
+Original exception text was: 'Response' object has no attribute 'userID'.
+2019-07-19 13:57:24 ERROR [12396-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19677
+2019-07-19 13:57:37 ERROR [12396-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'userID'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `userID` on serializer `UserPostSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Response` instance.
+Original exception text was: 'Response' object has no attribute 'userID'.
+2019-07-19 13:57:37 ERROR [12396-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19677
+2019-07-19 13:58:50 ERROR [13880-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'nickName'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `nickName` on serializer `UserPostSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Response` instance.
+Original exception text was: 'Response' object has no attribute 'nickName'.
+2019-07-19 13:58:50 ERROR [13880-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19687
+2019-07-19 14:00:15 ERROR [11508-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'nickName'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `nickName` on serializer `UserPostSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Response` instance.
+Original exception text was: 'Response' object has no attribute 'nickName'.
+2019-07-19 14:00:15 ERROR [11508-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19687
+2019-07-19 14:01:31 ERROR [15604-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'nickName'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `nickName` on serializer `UserPostSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Response` instance.
+Original exception text was: 'Response' object has no attribute 'nickName'.
+2019-07-19 14:01:31 ERROR [15604-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19687
+2019-07-19 14:01:57 ERROR [6140-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 443, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Response' object has no attribute 'nickName'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 559, in data
+    ret = super().data
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\fields.py", line 476, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `nickName` on serializer `UserPostSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Response` instance.
+Original exception text was: 'Response' object has no attribute 'nickName'.
+2019-07-19 14:01:57 ERROR [6140-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 19687
+2019-07-19 14:03:08 ERROR [7884-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'qu4ceecaeeaad@qq.com' for key 'email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "D:\worksapce\rabc\api\serializers.py", line 46, in create
+    user = User.objects.create(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\sql\compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'qu4ceecaeeaad@qq.com' for key 'email'")
+2019-07-19 14:03:08 ERROR [7884-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 23586
+2019-07-19 14:09:01 ERROR [6508-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'qu4ceedddcaeeaad@qq.com' for key 'email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "D:\worksapce\rabc\api\serializers.py", line 46, in create
+    user = User.objects.create(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\sql\compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'qu4ceedddcaeeaad@qq.com' for key 'email'")
+2019-07-19 14:09:01 ERROR [6508-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 23595
+2019-07-19 14:16:55 WARNING [9688-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 14:16:55 WARNING [9688-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 57
+2019-07-19 14:18:00 WARNING [11808-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 14:18:00 WARNING [11808-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 57
+2019-07-19 14:19:50 WARNING [12956-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 14:19:50 WARNING [12956-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 57
+2019-07-19 14:21:11 ERROR [13084-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 154, in _get_response
+    response = response.render()
+  File "D:\venv\rabcvenv\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\response.py", line 70, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\renderers.py", line 104, in render
+    allow_nan=not self.strict, separators=separators
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\utils\encoders.py", line 67, in default
+    return super().default(obj)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\json\encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type User is not JSON serializable
+2019-07-19 14:21:11 ERROR [13084-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 102860
+2019-07-19 15:29:14 WARNING [7572-Thread-7] log.log_response line 228: Not Found: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 15:29:14 WARNING [7572-Thread-7] basehttp.log_message line 154: "PUT /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 404 25
+2019-07-19 15:29:41 WARNING [7572-Thread-7] log.log_response line 228: Bad Request: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 15:29:41 WARNING [7572-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 400 200
+2019-07-19 15:30:12 ERROR [7572-Thread-7] log.log_response line 228: Internal Server Error: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\worksapce\rabc\api\views.py", line 47, in update
+    data = serializers.update_user(instance, serializers.data)
+  File "D:\worksapce\rabc\api\serializers.py", line 72, in update_user
+    user = instance.objects.update(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 176, in __get__
+    raise AttributeError("Manager isn't accessible via %s instances" % cls.__name__)
+AttributeError: Manager isn't accessible via User instances
+2019-07-19 15:30:12 ERROR [7572-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 500 18633
+2019-07-19 15:40:32 ERROR [7572-Thread-7] log.log_response line 228: Internal Server Error: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\worksapce\rabc\api\views.py", line 47, in update
+    data = serializers.update_user(instance, serializers.data)
+  File "D:\worksapce\rabc\api\serializers.py", line 72, in update_user
+    user = instance.objects.update(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 176, in __get__
+    raise AttributeError("Manager isn't accessible via %s instances" % cls.__name__)
+AttributeError: Manager isn't accessible via User instances
+2019-07-19 15:40:32 ERROR [7572-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 500 18633
+2019-07-19 15:43:34 ERROR [7572-Thread-7] log.log_response line 228: Internal Server Error: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\worksapce\rabc\api\views.py", line 47, in update
+    data = serializers.update_user(instance, serializers.data)
+  File "D:\worksapce\rabc\api\serializers.py", line 72, in update_user
+    user = instance.objects.update(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 176, in __get__
+    raise AttributeError("Manager isn't accessible via %s instances" % cls.__name__)
+AttributeError: Manager isn't accessible via User instances
+2019-07-19 15:43:34 ERROR [7572-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 500 18633
+2019-07-19 15:45:19 ERROR [9932-Thread-7] log.log_response line 228: Internal Server Error: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\worksapce\rabc\api\views.py", line 47, in update
+    data = serializers.update_user(instance, serializers.data)
+  File "D:\worksapce\rabc\api\serializers.py", line 72, in update_user
+    user = User.objects.filter(id=instance.id).objects.update(**validated_data)
+AttributeError: 'QuerySet' object has no attribute 'objects'
+2019-07-19 15:45:19 ERROR [9932-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 500 18480
+2019-07-19 15:45:47 ERROR [9808-Thread-7] log.log_response line 228: Internal Server Error: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ddddddeedddd@qq.com' for key 'email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\worksapce\rabc\api\views.py", line 47, in update
+    data = serializers.update_user(instance, serializers.data)
+  File "D:\worksapce\rabc\api\serializers.py", line 72, in update_user
+    user = User.objects.filter(id=instance.id).update(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 693, in update
+    rows = query.get_compiler(self.db).execute_sql(CURSOR)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\sql\compiler.py", line 1383, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\sql\compiler.py", line 1065, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'ddddddeedddd@qq.com' for key 'email'")
+2019-07-19 15:45:47 ERROR [9808-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 500 22472
+2019-07-19 15:45:59 ERROR [9808-Thread-7] log.log_response line 228: Internal Server Error: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 154, in _get_response
+    response = response.render()
+  File "D:\venv\rabcvenv\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\response.py", line 70, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\renderers.py", line 104, in render
+    allow_nan=not self.strict, separators=separators
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\utils\encoders.py", line 67, in default
+    return super().default(obj)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\json\encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Response is not JSON serializable
+2019-07-19 15:45:59 ERROR [9808-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 500 104147
+2019-07-19 16:03:12 WARNING [15456-Thread-7] log.log_response line 228: Bad Request: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 16:03:12 WARNING [15456-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 400 93
+2019-07-19 16:25:12 WARNING [11012-Thread-7] log.log_response line 228: Not Found: /aapi/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 16:25:12 WARNING [11012-Thread-7] basehttp.log_message line 154: "PUT /aapi/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 404 2170
+2019-07-19 16:25:28 WARNING [11012-Thread-7] log.log_response line 228: Not Found: /api/user/adsf/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 16:25:28 WARNING [11012-Thread-7] basehttp.log_message line 154: "PUT /api/user/adsf/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 404 3263
+2019-07-19 17:14:08 WARNING [5476-Thread-7] log.log_response line 228: Not Found: /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/
+2019-07-19 17:14:08 WARNING [5476-Thread-7] basehttp.log_message line 154: "DELETE /api/user/69F9BEE73E7D4A4C985F8E93AD485D23/ HTTP/1.1" 404 25
+2019-07-19 17:15:14 WARNING [5476-Thread-7] log.log_response line 228: Not Found: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 17:15:14 WARNING [5476-Thread-7] basehttp.log_message line 154: "DELETE /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 404 25
+2019-07-19 17:32:27 WARNING [7776-Thread-7] log.log_response line 228: Not Found: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 17:32:27 WARNING [7776-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 404 25
+2019-07-19 17:32:54 WARNING [7776-Thread-7] log.log_response line 228: Not Found: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 17:32:54 WARNING [7776-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 404 25
+2019-07-19 17:33:23 WARNING [7776-Thread-7] log.log_response line 228: Not Found: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 17:33:23 WARNING [7776-Thread-7] basehttp.log_message line 154: "GET /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 404 25
+2019-07-19 17:37:02 WARNING [2560-Thread-7] log.log_response line 228: Not Found: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 17:37:02 WARNING [2560-Thread-7] basehttp.log_message line 154: "GET /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 404 25
+2019-07-19 17:38:30 WARNING [2560-Thread-7] log.log_response line 228: Not Found: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 17:38:30 WARNING [2560-Thread-7] basehttp.log_message line 154: "GET /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 404 25
+2019-07-19 17:41:44 WARNING [16084-Thread-7] log.log_response line 228: Bad Request: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 17:41:44 WARNING [16084-Thread-7] basehttp.log_message line 154: "GET /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 400 70
+2019-07-19 17:42:09 WARNING [16084-Thread-7] log.log_response line 228: Bad Request: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 17:42:09 WARNING [16084-Thread-7] basehttp.log_message line 154: "GET /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 400 70
+2019-07-19 17:42:15 WARNING [16084-Thread-7] log.log_response line 228: Bad Request: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 17:42:15 WARNING [16084-Thread-7] basehttp.log_message line 154: "GET /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 400 70
+2019-07-19 17:44:38 WARNING [13132-Thread-7] log.log_response line 228: Bad Request: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 17:44:38 WARNING [13132-Thread-7] basehttp.log_message line 154: "GET /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 400 54
+2019-07-19 17:46:09 WARNING [1228-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 17:46:09 WARNING [1228-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 99
+2019-07-19 17:46:58 ERROR [1228-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\worksapce\rabc\api\views.py", line 33, in create
+    result = serializers.is_valid(raise_exception=False)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 235, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\serializers.py", line 433, in run_validation
+    value = self.validate(value)
+  File "D:\worksapce\rabc\api\serializers.py", line 37, in validate
+    if User.objects.filter(email=attrs['email']).exist():
+AttributeError: 'QuerySet' object has no attribute 'exist'
+2019-07-19 17:46:58 ERROR [1228-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 18624
+2019-07-19 17:47:40 ERROR [10864-Thread-7] log.log_response line 228: Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ddddddeedddd@qq.com' for key 'email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\venv\rabcvenv\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "D:\venv\rabcvenv\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\worksapce\rabc\api\views.py", line 36, in create
+    data = serializers.create_user(serializers.data)
+  File "D:\worksapce\rabc\api\serializers.py", line 43, in create_user
+    user = User.objects.create(**validated_data)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\models\sql\compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\venv\rabcvenv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\venv\rabcvenv\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'ddddddeedddd@qq.com' for key 'email'")
+2019-07-19 17:47:40 ERROR [10864-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 500 23314
+2019-07-19 17:49:43 WARNING [6684-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 17:49:43 WARNING [6684-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 34
+2019-07-19 17:55:15 WARNING [6684-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 17:55:15 WARNING [6684-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 137
+2019-07-19 17:58:30 WARNING [10948-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 17:58:30 WARNING [10948-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 40
+2019-07-19 17:58:44 WARNING [10948-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 17:58:44 WARNING [10948-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 100
+2019-07-19 17:59:01 WARNING [10948-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 17:59:01 WARNING [10948-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 137
+2019-07-19 18:04:18 WARNING [15116-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 18:04:18 WARNING [15116-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 40
+2019-07-19 18:04:25 WARNING [15116-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 18:04:25 WARNING [15116-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 46
+2019-07-19 18:04:32 WARNING [15116-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 18:04:32 WARNING [15116-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 46
+2019-07-19 18:13:17 WARNING [5772-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 18:13:17 WARNING [5772-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 120
+2019-07-19 18:13:29 WARNING [5772-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 18:13:29 WARNING [5772-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 34
+2019-07-19 18:13:34 WARNING [5772-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 18:13:34 WARNING [5772-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 40
+2019-07-19 18:13:41 WARNING [5772-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 18:13:41 WARNING [5772-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 40
+2019-07-19 18:13:44 WARNING [5772-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 18:13:44 WARNING [5772-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 46
+2019-07-19 18:14:01 WARNING [5772-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 18:14:01 WARNING [5772-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 96
+2019-07-19 18:16:13 WARNING [13416-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 18:16:13 WARNING [13416-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 90
+2019-07-19 18:16:52 WARNING [13416-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 18:16:52 WARNING [13416-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 106
+2019-07-19 18:22:01 WARNING [12528-Thread-7] log.log_response line 228: Bad Request: /api/user/
+2019-07-19 18:22:01 WARNING [12528-Thread-7] basehttp.log_message line 154: "POST /api/user/ HTTP/1.1" 400 91
+2019-07-19 18:23:19 WARNING [14428-Thread-7] log.log_response line 228: Not Found: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 18:23:19 WARNING [14428-Thread-7] basehttp.log_message line 154: "DELETE /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 404 25
+2019-07-19 18:23:20 WARNING [14428-Thread-7] log.log_response line 228: Not Found: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 18:23:20 WARNING [14428-Thread-7] basehttp.log_message line 154: "DELETE /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 404 25
+2019-07-19 18:27:30 WARNING [12716-Thread-7] log.log_response line 228: Bad Request: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 18:27:30 WARNING [12716-Thread-7] basehttp.log_message line 154: "DELETE /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 400 70
+2019-07-19 18:28:04 WARNING [9556-Thread-7] log.log_response line 228: Bad Request: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 18:28:04 WARNING [9556-Thread-7] basehttp.log_message line 154: "DELETE /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 400 37
+2019-07-19 18:29:16 WARNING [9556-Thread-7] log.log_response line 228: Not Found: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 18:29:16 WARNING [9556-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 404 25
+2019-07-19 18:29:20 WARNING [9556-Thread-7] log.log_response line 228: Not Found: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 18:29:20 WARNING [9556-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 404 25
+2019-07-19 18:29:50 WARNING [13916-Thread-7] log.log_response line 228: Bad Request: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 18:29:50 WARNING [13916-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 400 37
+2019-07-19 18:30:11 WARNING [13916-Thread-7] log.log_response line 228: Bad Request: /api/user/77E969A0D52C4B169172BDB1F85FCEF9/
+2019-07-19 18:30:11 WARNING [13916-Thread-7] basehttp.log_message line 154: "PUT /api/user/77E969A0D52C4B169172BDB1F85FCEF9/ HTTP/1.1" 400 93

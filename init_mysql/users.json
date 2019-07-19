@@ -1,0 +1,4 @@
+[
+  {"nickName": "管理员", "userID":"aaaaaaaa", "email": "test1@qq.com", "realName": "王大锤", "gender": 1, "tel":"13888888888", "dateBirth": "1999-05-12"},
+  {"nickName": "管理员", "userID":"aaaaaaaa", "email": "test2@qq.com", "realName": "王大锤", "gender": 2, "tel":"13888888888", "dateBirth": "1999-05-12"}
+]
