@@ -6,14 +6,13 @@ class MyJsonRenderer(JSONRenderer):
 
     def render(self, data, accepted_media_type=None, renderer_context=None):
         try:
-
-            code = data.pop('code')
-            msg = data.pop('msg')
+            code = data['code']
+            msg = data['msg']
+            renderer_context['response'].status_code = 400
             res = {
                 'code': code,
-                'msg': msg,
+                'msg': msg
             }
-            renderer_context['response'].status_code = 400
         except:
             # 表示程序是正常运行的，需自己组装code和msg参数
             code = 200
@@ -22,7 +21,8 @@ class MyJsonRenderer(JSONRenderer):
             res = {
                 'code': code,
                 'msg': msg,
-                'data': data
+                'data': data,
             }
-        return super().render(res)
+        print(res)
+        return super().render(res, accepted_media_type, renderer_context)
 

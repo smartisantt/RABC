@@ -1,6 +1,6 @@
 from rest_framework.routers import DefaultRouter
 
-from api.views import UserView
+from api.views import UserView, RoleView
 
 urlpatterns = [
 ]
@@ -8,5 +8,6 @@ urlpatterns = [
 
 router = DefaultRouter()
 router.register('user', UserView)
+router.register('role', RoleView)
 
 urlpatterns += router.urls
