@@ -1,50 +1,72 @@
 from rest_framework import serializers
 from rest_framework.response import Response
 
-from common.models import User
+from common.models import User, Role, Permissions
 from common.utils import get_uuid, TEL_PATTERN, EMAIL_PATTERN
 from utils.conn import *
 from utils.errors import ParamError
 
 
 class UserBasicSerializer(serializers.ModelSerializer):
+    roles = serializers.SerializerMethodField()
 
+    @staticmethod
+    def get_roles(user):
+        return RoleBasicSerializer(user.roles, many=True).data
 
     class Meta:
         model = User
-        fields = ('id', 'nickName', 'realName')
+        fields = ('uuid', 'nickName', 'realName', 'roles')
 
 
 class UserPostSerializer(serializers.Serializer):
-
     gender_choices = (
         (1, "男"),
         (2, "女"),
         (3, "保密")
     )
-    userID = serializers.CharField(max_length=64, required=True)
+    userID = serializers.CharField(max_length=64, required=True,
+                                   error_messages={
+                                       'required': 'userID必填'
+                                   }
+                                   )
     nickName = serializers.CharField(min_length=3, max_length=10, required=True,
                                      error_messages={
                                          'min_length': '昵称长度不要少于3个字符',
                                          'max_length': '昵称长度不要大于10个字符',
-                                         'required': '昵称不能为空'
+                                         'required': '昵称必填'
                                      })
-    email = serializers.CharField(max_length=255, required=True)
-    realName = serializers.CharField(max_length=32, required=True)
+    email = serializers.CharField(max_length=255, required=True,
+                                  error_messages={
+                                      'required': '邮箱必填'
+                                  })
+    realName = serializers.CharField(min_length=2, max_length=5, required=True,
+                                     error_messages={
+                                         'min_length': '名字长度不要小于2个字',
+                                         'max_length': '名字长度不要大于5个字',
+                                         'required': '真实名字必填'
+                                     })
     gender = serializers.ChoiceField(choices=gender_choices, required=False)
-    tel = serializers.CharField(max_length=32, required=True)
+    tel = serializers.CharField(max_length=32, required=True, error_messages={'required': '电话必填'})
     dateBirth = serializers.DateField(required=False)
     point = serializers.IntegerField(required=False)
     avatar = serializers.CharField(required=False)
-    roles = serializers.ListField(child=serializers.CharField(required=False), required=False)
+
+    roles = serializers.SlugRelatedField(many=True,
+                                         slug_field="uuid",
+                                         queryset=Role.objects.filter(isDelete=False),
+                                         required=True,
+                                         error_messages={
+                                             'required': "角色不能为空"
+                                         })
 
     def validate(self, attrs):
         # 逻辑校验
-        if User.objects.filter(email=attrs['email']).exists():
+        if User.objects.filter(email=attrs['email'], isDelete=False).exists():
             raise ParamError(USER_EMAIL_EXISTS)
         if not EMAIL_PATTERN.match(attrs['email']):
             raise ParamError(USER_EMAIL_ERROR)
-        if User.objects.filter(tel=attrs['tel']).exists():
+        if User.objects.filter(tel=attrs['tel'], isDelete=False).exists():
             raise ParamError(USER_TEL_EXISTS)
         if not TEL_PATTERN.match(attrs['tel']):
             raise ParamError(USER_TEL_ERROR)
@@ -52,8 +74,11 @@ class UserPostSerializer(serializers.Serializer):
 
 
     def create_user(self, validated_data):
+        roles = validated_data.pop('roles')
         validated_data['uuid'] = get_uuid()
         user = User.objects.create(**validated_data)
+        roles = Role.objects.filter(uuid__in=roles).all()
+        user.roles.add(*roles)
         res = {
             'user': UserBasicSerializer(user).data
         }
@@ -61,28 +86,45 @@ class UserPostSerializer(serializers.Serializer):
 
 
 class UserUpdateSerializer(serializers.Serializer):
-
     gender_choices = (
         (1, "男"),
         (2, "女"),
         (3, "保密")
     )
 
-    nickName = serializers.CharField(max_length=32, required=True)
-    email = serializers.CharField(max_length=255, required=True)
+    nickName = serializers.CharField(min_length=3, max_length=10, required=True,
+                                     error_messages={
+                                         'min_length': '昵称长度不要少于3个字符',
+                                         'max_length': '昵称长度不要大于10个字符',
+                                         'required': '昵称必填'
+                                     })
+    email = serializers.CharField(max_length=255, required=True,
+                                  error_messages={
+                                      'required': '邮箱必填'
+                                  })
     gender = serializers.ChoiceField(choices=gender_choices, required=False)
     avatar = serializers.CharField(required=False)
-
-
-    def validate(self, attrs):
-        # 逻辑校验
-        return attrs
+    # roles = serializers.ListField(child=serializers.CharField(required=False), required=False)
+    roles = serializers.SlugRelatedField(many=True,
+                                         slug_field="uuid",
+                                         queryset=Role.objects.filter(isDelete=False),
+                                         required=True,
+                                         error_messages={
+                                             'required': "角色不能为空"
+                                         })
 
     def update_user(self, instance, validate_data):
-        instance.gender = validate_data['gender']
+        instance.gender = validate_data.get('gender', instance.gender)
+        instance.avatar = validate_data.get('avatar', instance.avatar)
         instance.nickName = validate_data['nickName']
+        qs = User.objects.filter(email=validate_data['email'], isDelete=False).exclude(uuid=instance.uuid)
+        if qs.exists():
+            raise ParamError(USER_EMAIL_EXISTS)
         instance.email = validate_data['email']
-        instance.avatar = validate_data.get('avatar')
+
+        roles = Role.objects.filter(uuid__in=validate_data.get('roles')).all()
+        instance.roles.clear()
+        instance.roles.add(*roles)
         instance.save()
 
         res = {
@@ -91,4 +133,107 @@ class UserUpdateSerializer(serializers.Serializer):
         return res
 
 
+"""角色"""
+class RoleBasicSerializer(serializers.ModelSerializer):
+    permissions = serializers.SerializerMethodField()
 
+    @staticmethod
+    def get_permissions(role):
+        return PermissionsBasicSerializer(role.permissions, many=True).data
+
+    class Meta:
+        model = Role
+        fields = ('uuid', 'roleName', 'roleCode', 'permissions')
+
+
+class RolePostSerializer(serializers.Serializer):
+    roleName = serializers.CharField(min_length=2, max_length=12, required=True,
+                                     error_messages={
+                                         'min_length': '角色名字不要小于2个字',
+                                         'max_length': '角色名字不要大于12个字',
+                                         'required': '角色名字必填'
+                                     })
+    roleCode = serializers.CharField(min_length=2, max_length=12, required=True,
+                                     error_messages={
+                                         'min_length': '角色编码不要小于2个字',
+                                         'max_length': '角色编码不要大于12个字',
+                                         'required': '角色编码必填'
+                                     })
+    # permissions = serializers.ListField(child=serializers.CharField(required=False), required=True)
+    permissions = serializers.SlugRelatedField(many=True,
+                                               slug_field="uuid",
+                                               required=True,
+                                               queryset=Permissions.objects.filter(isDelete=False),
+                                               error_messages={
+                                                   'required': '权限不能为空'
+                                               })
+
+
+    def validate(self, attrs):
+        if Role.objects.filter(roleName=attrs['roleName'], isDelete=False).exists():
+            raise ParamError(ROLE_NAME_EXISTS)
+        if Role.objects.filter(roleCode=attrs['roleCode'], isDelete=False).exists():
+            raise ParamError(ROLE_CODE_EXISTS)
+
+        return attrs
+
+    def create_role(self, validated_data):
+
+        permissions = validated_data.pop('permissions')
+        validated_data['uuid'] = get_uuid()
+        role = Role.objects.create(**validated_data)
+        permissions = Permissions.objects.filter(uuid__in=permissions).all()
+        role.permissions.add(*permissions)
+
+        res = {
+            'role': RoleBasicSerializer(role).data
+        }
+        return res
+
+
+class RoleUpdateSerializer(serializers.Serializer):
+    roleName = serializers.CharField(min_length=2, max_length=12, required=True,
+                                     error_messages={
+                                         'min_length': '角色名字不要小于2个字',
+                                         'max_length': '角色名字不要大于12个字',
+                                         'required': '角色名字必填'
+                                     })
+    roleCode = serializers.CharField(min_length=2, max_length=12, required=True,
+                                     error_messages={
+                                         'min_length': '角色编码不要小于2个字',
+                                         'max_length': '角色编码不要大于12个字',
+                                         'required': '角色编码必填'
+                                     })
+    # permissions = serializers.ListField(child=serializers.CharField(required=False), required=True)
+    permissions = serializers.SlugRelatedField(many=True,
+                                               slug_field="uuid",
+                                               required=True,
+                                               queryset=Permissions.objects.filter(isDelete=False),
+                                               error_messages={
+                                                   'required': '权限不能为空'
+                                               })
+
+    def update_role(self, instance, validate_data):
+        qs = Role.objects.filter(roleName=validate_data['roleName'], isDelete=False).exclude(uuid=instance.uuid)
+        if qs.exists():
+            raise ParamError(ROLE_NAME_EXISTS)
+        qs = Role.objects.filter(roleCode=validate_data['roleCode'], isDelete=False).exclude(uuid=instance.uuid)
+        if qs.exists():
+            raise ParamError(ROLE_CODE_EXISTS)
+
+        permissions = Permissions.objects.filter(uuid__in=validate_data.get('permissions')).all()
+        instance.permissions.clear()
+        instance.permissions.add(*permissions)
+        instance.save()
+
+        res = {
+            'permission': RoleBasicSerializer(instance).data
+        }
+        return res
+
+
+class PermissionsBasicSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Permissions
+        fields = ('uuid', 'permissionName', 'permissionCode')
