@@ -12,7 +12,7 @@ class UserBasicSerializer(serializers.ModelSerializer):
 
     @staticmethod
     def get_roles(user):
-        return RoleBasicSerializer(user.roles, many=True).data
+        return RoleSimpleSerializer(user.roles, many=True).data
 
     class Meta:
         model = User
@@ -134,11 +134,19 @@ class UserUpdateSerializer(serializers.Serializer):
 
 
 """角色"""
+class RoleSimpleSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Role
+        fields = ('uuid', 'roleName', 'roleCode')
+
+
 class RoleBasicSerializer(serializers.ModelSerializer):
     permissions = serializers.SerializerMethodField()
 
     @staticmethod
     def get_permissions(role):
+        # permissions = role.permissions.filter(isDelete=False).all()
         return PermissionsBasicSerializer(role.permissions, many=True).data
 
     class Meta:
@@ -168,21 +176,18 @@ class RolePostSerializer(serializers.Serializer):
                                                    'required': '权限不能为空'
                                                })
 
-
     def validate(self, attrs):
         if Role.objects.filter(roleName=attrs['roleName'], isDelete=False).exists():
             raise ParamError(ROLE_NAME_EXISTS)
         if Role.objects.filter(roleCode=attrs['roleCode'], isDelete=False).exists():
             raise ParamError(ROLE_CODE_EXISTS)
-
         return attrs
 
     def create_role(self, validated_data):
-
         permissions = validated_data.pop('permissions')
         validated_data['uuid'] = get_uuid()
         role = Role.objects.create(**validated_data)
-        permissions = Permissions.objects.filter(uuid__in=permissions).all()
+        permissions = Permissions.objects.filter(uuid__in=permissions).all()        # 这里可以不用过滤isDelete=False
         role.permissions.add(*permissions)
 
         res = {
@@ -221,7 +226,9 @@ class RoleUpdateSerializer(serializers.Serializer):
         if qs.exists():
             raise ParamError(ROLE_CODE_EXISTS)
 
-        permissions = Permissions.objects.filter(uuid__in=validate_data.get('permissions')).all()
+        instance.roleName = validate_data['roleName']
+        instance.roleCode = validate_data['roleCode']
+        permissions = Permissions.objects.filter(uuid__in=validate_data.get('permissions'), isDelete=False).all()
         instance.permissions.clear()
         instance.permissions.add(*permissions)
         instance.save()
@@ -237,3 +244,68 @@ class PermissionsBasicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Permissions
         fields = ('uuid', 'permissionName', 'permissionCode')
+
+
+class PermissionPostSerializer(serializers.Serializer):
+    permissionName = serializers.CharField(min_length=2, max_length=12, required=True,
+                                           error_messages={
+                                             'min_length': '权限名字不要小于2个字',
+                                             'max_length': '权限名字不要大于12个字',
+                                             'required': '权限名字必填'
+                                         })
+    permissionCode = serializers.CharField(min_length=2, max_length=12, required=True,
+                                           error_messages={
+                                             'min_length': '权限编码不要小于2个字',
+                                             'max_length': '权限编码不要大于12个字',
+                                             'required': '权限编码必填'
+                                         })
+
+    def validate(self, attrs):
+        if Permissions.objects.filter(permissionName=attrs['permissionName'], isDelete=False).exists():
+            raise ParamError(PERMISSION_NAME_EXISTS)
+        if Permissions.objects.filter(permissionCode=attrs['permissionCode'], isDelete=False).exists():
+            raise ParamError(PERMISSION_CODE_EXISTS)
+        return attrs
+
+    def create_permission(self, validated_data):
+        validated_data['uuid'] = get_uuid()
+        permission = Permissions.objects.create(**validated_data)
+        res = {
+            'permission': PermissionsBasicSerializer(permission).data
+        }
+        return res
+
+
+class PermissionUpdateSerializer(serializers.Serializer):
+    permissionName = serializers.CharField(min_length=2, max_length=12, required=True,
+                                           error_messages={
+                                             'min_length': '权限名字不要小于2个字',
+                                             'max_length': '权限名字不要大于12个字',
+                                             'required': '权限名字必填'
+                                            })
+    permissionCode = serializers.CharField(min_length=2, max_length=12, required=True,
+                                           error_messages={
+                                                 'min_length': '权限编码不要小于2个字',
+                                                 'max_length': '权限编码不要大于12个字',
+                                                 'required': '权限编码必填'
+                                            })
+
+    def update_permission(self, instance, validate_data):
+        qs = Permissions.objects.filter(permissionName=validate_data['permissionName'], isDelete=False).\
+            exclude(uuid=instance.uuid)
+        if qs.exists():
+            raise ParamError(PERMISSION_NAME_EXISTS)
+        qs = Permissions.objects.filter(permissionCode=validate_data['permissionCode'], isDelete=False).\
+            exclude(uuid=instance.uuid)
+        if qs.exists():
+            raise ParamError(PERMISSION_CODE_EXISTS)
+
+        instance.permissionName = validate_data['permissionName']
+        instance.permissionCode = validate_data['permissionCode']
+        instance.save()
+
+        res = {
+            'permission': PermissionsBasicSerializer(instance).data
+        }
+        return res
+

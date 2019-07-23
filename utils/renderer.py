@@ -8,7 +8,7 @@ class MyJsonRenderer(JSONRenderer):
         try:
             code = data['code']
             msg = data['msg']
-            renderer_context['response'].status_code = 400
+            renderer_context['response'].status_code = 400 if data.get('code')>600 else data.get('code')
             res = {
                 'code': code,
                 'msg': msg
