@@ -28,7 +28,7 @@ class Role(BaseModle, models.Model):
     roleName = models.CharField(max_length=128, verbose_name="角色名称", blank=True, null=True)
     roleCode = models.CharField(max_length=128, verbose_name="角色编码", blank=True, null=True)
     isDelete = models.BooleanField(default=False)
-    permissions = models.ManyToManyField(Permissions)
+    permissions = models.ManyToManyField(Permissions, related_name='role')
 
     class Meta:
         db_table = 'tb_role'
@@ -65,7 +65,7 @@ class User(BaseModle, models.Model):
     lastVist = models.DateTimeField(verbose_name="上次访问时间", blank=True, null=True)
     avatar = models.CharField(verbose_name="用户头像", max_length=256, blank=True, null=True)
     isDelete = models.BooleanField(default=False)
-    roles = models.ManyToManyField(Role)
+    roles = models.ManyToManyField(Role, related_name='user')
 
     class Meta:
         db_table = 'tb_user'

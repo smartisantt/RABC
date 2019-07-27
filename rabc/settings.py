@@ -130,6 +130,37 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
+# 缓存配置
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': [
+            'redis://127.0.0.1:6379/0',
+        ],  # redis服务ip和端口，
+        'KEY_PREFIX': 'user',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'CONNECTION_POOL_KWARGS': {
+                'max_connections': 1024,
+            }
+        },
+    },
+    'api': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': [
+            'redis://127.0.0.1:6379/1',
+        ],  # redis服务ip和端口，
+        'KEY_PREFIX': 'api',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'CONNECTION_POOL_KWARGS': {
+                'max_connections': 512,
+            }
+        },
+    },
+}
+
+
 
 # 日志
 LOGGING = {
@@ -196,7 +227,7 @@ LOGGING = {
 
 REST_FRAMEWORK = {
     # 分页配置
-    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'utils.paginations.MyPagination',
     # 'PAGE_SIZE': 1,
     # 过滤
     'DEFAULT_FILTER_BACKENDS': (
@@ -206,4 +237,11 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'utils.renderer.MyJsonRenderer',
     ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'api.auths.CustomAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'api.auths.CustomAuthorization',
+    ),
+    'EXCEPTION_HANDLER': 'utils.exceptions.custom_exception_handler'
 }

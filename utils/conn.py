@@ -14,11 +14,8 @@ ROLE_CODE_EXISTS = {'code': 1013, 'msg': '角色编码重复'}
 
 
 PERMISSION_NOT_EXISTS = {'code': 1021, 'msg': '权限不存在'}
-PERMISSION_NAME_EXISTS = {'code': 1022, 'msg': '角色名重复'}
-PERMISSION_CODE_EXISTS = {'code': 1023, 'msg': '角色编码重复'}
+PERMISSION_NAME_EXISTS = {'code': 1022, 'msg': '权限名重复'}
+PERMISSION_CODE_EXISTS = {'code': 1023, 'msg': '权限编码重复'}
 
 
 
-USER_PASSWORD_ERROR = {'code': 1002, 'msg': '账号或密码错误，请确认登录信息'}
-USER_REGISTER_EXISTS = {'code': 1003, 'msg': '注册账号已存在，请更换账号'}
-USER_PASSWORD_NOT_EQUAL = {'code': 1004, 'msg': '注册密码和确认密码不一致'}
