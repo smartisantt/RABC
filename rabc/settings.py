@@ -81,10 +81,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'rabc',
-        'HOST': '127.0.0.1',
-        'PORT': 3306,
+        'HOST': '39.105.49.244',
+        'PORT': 8037,
         'USER': 'root',
-        'PASSWORD': 'hbb123',
+        'PASSWORD': '123456',
         'TIME_ZONE': 'Asia/Chongqing',
     },
 }
@@ -135,27 +135,29 @@ CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
         'LOCATION': [
-            'redis://127.0.0.1:6379/0',
+            'redis://39.105.49.244:8079/0',
         ],  # redis服务ip和端口，
         'KEY_PREFIX': 'user',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
             'CONNECTION_POOL_KWARGS': {
                 'max_connections': 1024,
-            }
+            },
+            'PASSWORD': 'hbb123',
         },
     },
     'api': {
         'BACKEND': 'django_redis.cache.RedisCache',
         'LOCATION': [
-            'redis://127.0.0.1:6379/1',
+            'redis://39.105.49.244:8079/1',
         ],  # redis服务ip和端口，
         'KEY_PREFIX': 'api',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
             'CONNECTION_POOL_KWARGS': {
                 'max_connections': 512,
-            }
+            },
+            'PASSWORD': 'hbb123',
         },
     },
 }
