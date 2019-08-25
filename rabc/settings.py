@@ -237,11 +237,11 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'utils.renderer.MyJsonRenderer',
     ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'api.auths.CustomAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'api.auths.CustomAuthorization',
-    ),
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'api.auths.CustomAuthentication',
+    # ),
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'api.auths.CustomAuthorization',
+    # ),
     'EXCEPTION_HANDLER': 'utils.exceptions.custom_exception_handler'
 }
